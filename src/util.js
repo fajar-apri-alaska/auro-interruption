@@ -1,4 +1,7 @@
 /* eslint-disable func-style */
+/* eslint-disable max-statements */
+/* eslint-disable no-param-reassign */
+
 /**
  * Recursively traverses a node's siblings and makes them inert and aria-hidden so that
  * keyboard and screen reader focus is trapped within the dialog.
@@ -15,7 +18,7 @@ export function makeSiblingsInert(node) {
    * @returns {void}
    */
   function handleInert(currentNode) {
-    if(!currentNode.parentNode && currentNode.host){
+    if (!currentNode.parentNode && currentNode.host) {
       currentNode = currentNode.host;
     }
     if (currentNode.parentNode) {
