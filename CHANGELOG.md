@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.3](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.4.2...v1.4.3) (2022-11-17)
+
+
+### Bug Fixes
+
+* **parts:** add parts to all containers in template [#96](https://github.com/AlaskaAirlines/auro-interruption/issues/96) ([afbce9a](https://github.com/AlaskaAirlines/auro-interruption/commit/afbce9a487dcd21c349dbd746250dc7965c02b19))
+
 ## [1.4.2](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.4.1...v1.4.2) (2022-11-02)
 
 
