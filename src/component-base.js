@@ -38,6 +38,11 @@ const ESCAPE_KEYCODE = 27,
  * @function toggleViewable - toggles the 'open' property on the element
  * @event toggle - Event fires when the element is closed
  * @csspart close-button - adjust position of the close X icon in the dialog window
+ * @csspart dialog-overlay - apply CSS on the overlay of the dialog
+ * @csspart dialog - apply CSS to the entire dialog
+ * @csspart dialog-header - apply CSS to the header of the dialog
+ * @csspart dialog-content - apply CSS to the content of the dialog
+ * @csspart dialog-footer - apply CSS to the footer of the dialog
  */
 
 export default class ComponentBase extends LitElement {
@@ -230,25 +235,25 @@ export default class ComponentBase extends LitElement {
       }
 
     return html`
-      <div class="${classMap(classes)}" id="dialog-overlay" @click=${this.handleOverlayClick}></div>
+      <div class="${classMap(classes)}" id="dialog-overlay" part="dialog-overlay" @click=${this.handleOverlayClick}></div>
 
-      <div role="dialog" id="dialog" class="${classMap(contentClasses)}" aria-labelledby="dialog-header" tabindex="-1">
+      <div role="dialog" id="dialog" class="${classMap(contentClasses)}" part="dialog" aria-labelledby="dialog-header" tabindex="-1">
         ${this.unformatted
         ? html`
           <slot name="content"></slot>
           ${this.getCloseButton()}
         `
         : html`
-          <div class="dialog-header">
+          <div class="dialog-header" part="dialog-header">
             <h1 class="heading heading--700 util_stackMarginNone--top" id="dialog-header">
               <slot name="header">Default header ...</slot>
             </h1>
             ${this.getCloseButton()}
           </div>
-          <div class="dialog-content">
+          <div class="dialog-content" part="dialog-content">
             <slot name="content"></slot>
           </div>
-          <div class="dialog-footer" id="footerWrapper">
+          <div class="dialog-footer" id="footerWrapper" part="dialog-footer">
             <slot name="footer" id="footer"></slot>
           </div>
         `
