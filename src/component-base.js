@@ -15,7 +15,8 @@ import styleCss from "./style-css.js";
 import styleCssFixed from './style-fixed-css.js';
 import styleUnformattedCssFixed from './style-unformatted-fixed-css.js';
 import closeIcon from '@alaskaairux/icons/dist/icons/interface/x-lg_es6.js';
-import { makeSiblingsInert } from './util.js';
+
+/* eslint-disable one-var, prefer-destructuring */
 
 const ESCAPE_KEYCODE = 27,
   FOCUS_TIMEOUT = 50;
@@ -126,7 +127,8 @@ export default class ComponentBase extends LitElement {
 
     setTimeout(() => {
       this.focus();
-      this.cleanupInertNodes = makeSiblingsInert(this);
+
+      this.handleFocusLoss();
     }, FOCUS_TIMEOUT);
   }
 
@@ -136,15 +138,6 @@ export default class ComponentBase extends LitElement {
    */
   closeDialog() {
     this.dispatchToggleEvent();
-    if (this.cleanupInertNodes) {
-      this.cleanupInertNodes();
-      // Wait for the inert polyfill to react to the DOM change
-      Promise.resolve().then(() => {
-        const elementToFocus = this.triggerElement || this.defaultTrigger;
-
-        elementToFocus.focus();
-      });
-    }
   }
 
   /**
@@ -157,6 +150,27 @@ export default class ComponentBase extends LitElement {
 
     toggleEvent.initEvent("toggle", true, false);
     this.dispatchEvent(toggleEvent);
+  }
+
+  /**
+   * @private
+   * @returns {void} Determines if dropdown bib should be closed on focus change.
+   */
+  handleFocusLoss() {
+    const focusable = [...this.querySelectorAll('button, auro-button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')];
+
+    const firstFocusableElement = focusable[0];
+    const lastFocusableElement = focusable[focusable.length - 1];
+
+    const closeButton = this.shadowRoot.getElementById('dialog-close');
+
+    lastFocusableElement.addEventListener('focusout', () => {
+      if (closeButton !== null) { // eslint-disable-line no-negated-condition
+        closeButton.focus();
+      } else {
+        firstFocusableElement.focus();
+      }
+    });
   }
 
   /**
