@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.4.4](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.4.3...v1.4.4) (2023-01-25)
+
+
+### Bug Fixes
+
+* **focus:** implement tab trap [#80](https://github.com/AlaskaAirlines/auro-interruption/issues/80) ([41dd50c](https://github.com/AlaskaAirlines/auro-interruption/commit/41dd50c66950c389c16d2316138da9d2bb369f39))
+
 ## [1.4.3](https://github.com/AlaskaAirlines/auro-interruption/compare/v1.4.2...v1.4.3) (2022-11-17)
 
 
