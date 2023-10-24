@@ -20,11 +20,16 @@
   max-height: unset;
 
   transform: translateX(100%);
+  overflow: visible;
 
   // open modifier
   &--open {
     transform: translateX(0%);
   }
+}
+
+::slotted([slot="content"]) {
+  position: relative;
 }
 
 :host([left]) {

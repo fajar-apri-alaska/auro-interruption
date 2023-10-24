@@ -68,7 +68,7 @@ $auro-spacing-options: none;
 
   display: block;
   visibility: hidden;
-  overflow: auto;
+  overflow: visible;
 
   width: 100%;
   max-height: 90%;
@@ -153,6 +153,10 @@ $auro-spacing-options: none;
       cursor: pointer;
     }
   }
+}
+
+::slotted([slot="content"]) {
+  position: relative;
 }
 
 :host(.focus-visible) {

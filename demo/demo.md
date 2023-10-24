@@ -80,10 +80,10 @@ Read the [auro-dialog](https://auro.alaskaair.com/components/auro/interruption/d
 ## Drawer example
 
 <div class="exampleWrapper">
-  <auro-button onClick="toggleInterruption('#defaultDrawer')">Open Default Dialog</auro-button>
+  <auro-button onClick="toggleInterruption('#defaultDrawer')">Open Default Drawer</auro-button>
 
   <auro-drawer id="defaultDrawer">
-    <span slot="header">Default Dialog</span>
+    <span slot="header">Default Drawer</span>
     <div slot="content">
       <p>
         When traveling on Alaska Airlines flights, Alaska Airlines checked baggage fees may apply. See <auro-hyperlink href="https://www.alaskaair.com/bagrules" target="_blank">alaskaair.com/bagrules</auro-hyperlink> for our rules. For itineraries that include other airlines, their checked baggage fees may apply, as displayed on their websites.

@@ -443,6 +443,95 @@ See the following examples.
   ```
 </auro-accordion>
 
+## Dialog with popover component
+
+This is a use case where there is a popover component inside the dialog component, creating a stack of layered components.
+
+See the following examples.
+
+<div class="demo--inline exampleWrapper auro_containedButtons">
+  <auro-button onClick="toggleInterruption('#popover-dialog')">Open dialog with popover</auro-button>
+</div>
+
+<auro-dialog id="popover-dialog" sm lg>
+  <span slot="header">Small Modal Dialog</span>
+  <div slot="content">
+    <p>
+      When traveling on Alaska Airlines flights, Alaska Airlines checked baggage fees may apply. See <auro-hyperlink href="https://www.alaskaair.com/bagrules" target="_blank">alaskaair.com/bagrules</auro-hyperlink> for our rules. For itineraries that include other airlines, their checked baggage fees may apply, as displayed on their websites.
+    </p>
+    <p>
+      Baggage rules and fees will be based on the specific itinerary chosen. The applicable first and second bag fees will be displayed after you have added flights to the cart.
+    </p>
+    <auro-header level="3" display="500">
+      Before checking your bags, remember to:
+    </auro-header>
+    <auro-popover>
+      <div class="content">
+        <ul>
+          <li>Caerphilly croque monsieur fondue</li>
+          <li>Taleggio goat mascarpone cow manchego cheese and wine emmental cheese strings</li>
+          <li>Cheddar cheese and biscuits chalk and cheese</li>
+          <li>Camembert de normandie stinking bishop bavarian bergkase</li>
+        </ul>
+      </div>
+      <span slot="trigger" style="color: blue; text-decoration: underline;">Hover on me</span>
+    </auro-popover>
+  </div>
+  <div slot="footer" class="auro_containedButtons">
+    <auro-button onClick="toggleInterruption('#popover-dialog')">
+      I understand
+      <auro-icon category="interface" name="check-lg" emphasis onDark></auro-icon>
+    </auro-button>
+  </div>
+</auro-dialog>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <div class="demo--inline exampleWrapper auro_containedButtons">
+    <auro-button onClick="toggleInterruption('#popover-dialog')">Open dialog with popover</auro-button>
+  </div>
+
+  <auro-dialog id="popover-dialog" sm lg>
+    <span slot="header">Small Modal Dialog</span>
+    <div slot="content">
+      <p>
+        When traveling on Alaska Airlines flights, Alaska Airlines checked baggage fees may apply. See <auro-hyperlink href="https://www.alaskaair.com/bagrules" target="_blank">alaskaair.com/bagrules</auro-hyperlink> for our rules. For itineraries that include other airlines, their checked baggage fees may apply, as displayed on their websites.
+      </p>
+      <p>
+        Baggage rules and fees will be based on the specific itinerary chosen. The applicable first and second bag fees will be displayed after you have added flights to the cart.
+      </p>
+      <auro-header level="3" display="500">
+        Before checking your bags, remember to:
+      </auro-header>
+      <auro-popover>
+        <div class="content">
+          <div><strong>Premium Class benefits</strong></div>
+          <div>
+            <ul>
+              <li class="text"><strong>More legroom.</strong> 4 inches more than standard Main Cabin seats.</li>
+              <li class="text"><strong>Priority boarding.</strong> Board early, access overhead bin space, and be among the
+                first to deplane.</li>
+              <li class="text"><strong>Drinks.</strong> Enjoy free beer, wine, and cocktails on flights over 350 miles.
+                Seat assignments and actual availability are subject to change.</li>
+            </ul>
+          </div>
+        </div>
+        <span slot="trigger" style="color: blue; text-decoration: underline;">Hover on me</span>
+      </auro-popover>
+    </div>
+    <div slot="footer" class="auro_containedButtons">
+      <auro-button onClick="toggleInterruption('#popover-dialog')">
+        I understand
+        <auro-icon category="interface" name="check-lg" emphasis onDark></auro-icon>
+      </auro-button>
+    </div>
+  </auro-dialog>
+  ```
+</auro-accordion>
+
+
 ## Unformatted dialog
 
 For use case where the use of a dialog is to be more freeform, but the experience and base tooling for the dialog are still requested, there is the `unformatted` property.
