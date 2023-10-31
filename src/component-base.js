@@ -162,15 +162,17 @@ export default class ComponentBase extends LitElement {
     const firstFocusableElement = focusable[0];
     const lastFocusableElement = focusable[focusable.length - 1];
 
-    const closeButton = this.shadowRoot.getElementById('dialog-close');
+    if (lastFocusableElement) {
+      const closeButton = this.shadowRoot.getElementById('dialog-close');
 
-    lastFocusableElement.addEventListener('focusout', () => {
-      if (closeButton !== null) { // eslint-disable-line no-negated-condition
-        closeButton.focus();
-      } else {
-        firstFocusableElement.focus();
-      }
-    });
+      lastFocusableElement.addEventListener('focusout', () => {
+        if (closeButton !== null) { // eslint-disable-line no-negated-condition
+          closeButton.focus();
+        } else {
+          firstFocusableElement.focus();
+        }
+      });
+    }
   }
 
   /**
